@@ -1,52 +1,51 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Box } from "@chakra-ui/react";
-import badImg from "@/public/images/houseImg/badhouse.png";
-import goodImg from "@/public/images/houseImg/goodHouse.png";
+"use client"
+
+import type React from "react"
+import { useState, useRef, useEffect } from "react"
+import { Box } from "@chakra-ui/react"
+
 const ImageCompareSlider = () => {
-  // Define the image URLs as plain strings.
-  const leftImage = goodImg.src; // Use .src to get the URL
-  const rightImage = badImg.src;
+  const leftImage = "/images/houseImg/goodHouse.png"
+  const rightImage = "/images/houseImg/badhouse.png"
 
-  const containerRef = useRef(null);
-  const [sliderX, setSliderX] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [containerWidth, setContainerWidth] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [sliderX, setSliderX] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [containerWidth, setContainerWidth] = useState(0)
 
-  // Set initial container width and slider position; update on window resize.
   useEffect(() => {
     const updateWidth = () => {
       if (containerRef.current) {
-        const width = containerRef.current.offsetWidth;
-        setContainerWidth(width);
-        setSliderX(width / 2);
+        const width = containerRef.current.offsetWidth
+        setContainerWidth(width)
+        setSliderX(width / 2)
       }
-    };
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
+    }
+    updateWidth()
+    window.addEventListener("resize", updateWidth)
+    return () => window.removeEventListener("resize", updateWidth)
+  }, [])
 
-  // Mouse and touch event handlers to update the slider's position.
-  const handleMouseDown = () => setIsDragging(true);
-  const handleMouseMove = (e) => {
-    if (!isDragging || !containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    let newX = e.clientX - rect.left;
-    if (newX < 0) newX = 0;
-    if (newX > containerWidth) newX = containerWidth;
-    setSliderX(newX);
-  };
-  const handleMouseUp = () => setIsDragging(false);
-  const handleTouchStart = () => setIsDragging(true);
-  const handleTouchMove = (e) => {
-    if (!isDragging || !containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    let newX = e.touches[0].clientX - rect.left;
-    if (newX < 0) newX = 0;
-    if (newX > containerWidth) newX = containerWidth;
-    setSliderX(newX);
-  };
-  const handleTouchEnd = () => setIsDragging(false);
+  const handleMouseDown = () => setIsDragging(true)
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !containerRef.current) return
+    const rect = containerRef.current.getBoundingClientRect()
+    let newX = e.clientX - rect.left
+    if (newX < 0) newX = 0
+    if (newX > containerWidth) newX = containerWidth
+    setSliderX(newX)
+  }
+  const handleMouseUp = () => setIsDragging(false)
+  const handleTouchStart = () => setIsDragging(true)
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !containerRef.current) return
+    const rect = containerRef.current.getBoundingClientRect()
+    let newX = e.touches[0].clientX - rect.left
+    if (newX < 0) newX = 0
+    if (newX > containerWidth) newX = containerWidth
+    setSliderX(newX)
+  }
+  const handleTouchEnd = () => setIsDragging(false)
 
   return (
     <Box
@@ -61,10 +60,8 @@ const ImageCompareSlider = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       cursor={isDragging ? "grabbing" : "grab"}
-      // Prevent user selection in the container.
       style={{ userSelect: "none" }}
     >
-      {/* Base image */}
       <Box
         as="img"
         src={leftImage}
@@ -76,7 +73,6 @@ const ImageCompareSlider = () => {
         style={{ userSelect: "none", pointerEvents: "none" }}
       />
 
-      {/* Overlay image with dynamic clipping */}
       <Box
         as="img"
         src={rightImage}
@@ -95,7 +91,6 @@ const ImageCompareSlider = () => {
         }}
       />
 
-      {/* Before and After Labels */}
       <Box
         position="absolute"
         top="10px"
@@ -125,7 +120,6 @@ const ImageCompareSlider = () => {
         After
       </Box>
 
-      {/* Draggable slider handle */}
       <Box
         position="absolute"
         top="0"
@@ -154,7 +148,7 @@ const ImageCompareSlider = () => {
         />
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default ImageCompareSlider;
+export default ImageCompareSlider

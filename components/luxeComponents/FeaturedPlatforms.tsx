@@ -1,12 +1,6 @@
-import React from "react";
-import { Box, HStack } from "@chakra-ui/react";
-import TitleSubheading from "./Text/titleSubheading";
-import Image from "next/image";
-import airbnbLogo from "@/public/images/AirbnbLogo.svg";
-import bookingComLogo from "@/public/images/Booking.svg";
-import realestateLogo from "@/public/images/realestateLogo.svg";
-import stayzLogo from "@/public/images/stayzLogo.svg";
-import vrboLogo from "@/public/images/VrboLogo.svg";
+import { Box, HStack } from "@chakra-ui/react"
+import TitleSubheading from "./Text/titleSubheading"
+import Image from "next/image"
 
 const FeaturedPlatforms = () => {
   return (
@@ -40,7 +34,6 @@ const FeaturedPlatforms = () => {
           transition={"transform 0.3s"}
           _hover={{
             transform: "scale(1.05)",
-
             cursor: "pointer",
           }}
           justify={["center", "center", "center", "center", "center"]}
@@ -48,8 +41,8 @@ const FeaturedPlatforms = () => {
           w={["30%", "30%", "30%", "30%", "100%"]}
           h={["30%", "30%", "30%", "30%", "100%"]}
         >
-          <a href="https://www.airbnb.com" target="_blank" rel="noreferrer" aria-label="Airbnb Logo" title="Airbnb" >
-            <Image src={airbnbLogo} width={250} height={250} alt="Airbnb" />
+          <a href="https://www.airbnb.com" target="_blank" rel="noreferrer" aria-label="Airbnb Logo" title="Airbnb">
+            <Image src="/images/AirbnbLogo.svg" width={250} height={250} alt="Airbnb" />
           </a>
         </HStack>
 
@@ -57,7 +50,6 @@ const FeaturedPlatforms = () => {
           transition={"transform 0.3s"}
           _hover={{
             transform: "scale(1.05)",
-
             cursor: "pointer",
           }}
           justify={["center", "center", "center", "center", "center"]}
@@ -65,13 +57,14 @@ const FeaturedPlatforms = () => {
           w={["30%", "30%", "30%", "30%", "100%"]}
           h={["30%", "30%", "30%", "30%", "100%"]}
         >
-          <a href="https://www.booking.com" target="_blank" rel="noreferrer" aria-label="Booking.com Logo" title="Booking.com" >
-            <Image
-              src={bookingComLogo}
-              width={250}
-              height={250}
-              alt="Booking.com"
-            />
+          <a
+            href="https://www.booking.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Booking.com Logo"
+            title="Booking.com"
+          >
+            <Image src="/images/Booking.svg" width={250} height={250} alt="Booking.com" />
           </a>
         </HStack>
 
@@ -79,7 +72,6 @@ const FeaturedPlatforms = () => {
           transition={"transform 0.3s"}
           _hover={{
             transform: "scale(1.05)",
-
             cursor: "pointer",
           }}
           justify={["center", "center", "center", "center", "center"]}
@@ -87,8 +79,8 @@ const FeaturedPlatforms = () => {
           w={["30%", "30%", "30%", "30%", "100%"]}
           h={["30%", "30%", "30%", "30%", "100%"]}
         >
-          <a href="https://www.vrbo.com" target="_blank" rel="noreferrer" aria-label="Vrbo Logo" title="Vrbo" >
-            <Image src={vrboLogo} width={200} height={200} alt="Vrbo" />
+          <a href="https://www.vrbo.com" target="_blank" rel="noreferrer" aria-label="Vrbo Logo" title="Vrbo">
+            <Image src="/images/VrboLogo.svg" width={200} height={200} alt="Vrbo" />
           </a>
         </HStack>
 
@@ -96,7 +88,6 @@ const FeaturedPlatforms = () => {
           transition={"transform 0.3s"}
           _hover={{
             transform: "scale(1.05)",
-
             cursor: "pointer",
           }}
           justify={["center", "center", "center", "center", "center"]}
@@ -104,8 +95,8 @@ const FeaturedPlatforms = () => {
           w={["30%", "30%", "30%", "30%", "100%"]}
           h={["30%", "30%", "30%", "30%", "100%"]}
         >
-          <a href="https://www.stayz.com.au" target="_blank" rel="noreferrer" aria-label="Stayz Logo" title="Stayz" >
-            <Image src={stayzLogo} width={200} height={200} alt="Stayz" />
+          <a href="https://www.stayz.com.au" target="_blank" rel="noreferrer" aria-label="Stayz Logo" title="Stayz">
+            <Image src="/images/stayzLogo.svg" width={200} height={200} alt="Stayz" />
           </a>
         </HStack>
 
@@ -113,7 +104,6 @@ const FeaturedPlatforms = () => {
           transition={"transform 0.3s"}
           _hover={{
             transform: "scale(1.05)",
-
             cursor: "pointer",
           }}
           justify={["center", "center", "center", "center", "center"]}
@@ -121,18 +111,19 @@ const FeaturedPlatforms = () => {
           w={["30%", "30%", "30%", "30%", "100%"]}
           h={["30%", "30%", "30%", "30%", "100%"]}
         >
-          <a href="https://www.realestate.com.au" target="_blank" rel="noreferrer" aria-label="Realestate Logo" title="Realestate" >
-            <Image
-              src={realestateLogo}
-              width={250}
-              height={250}
-              alt="Realestate"
-            />
+          <a
+            href="https://www.realestate.com.au"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Realestate Logo"
+            title="Realestate"
+          >
+            <Image src="/images/realestateLogo.svg" width={250} height={250} alt="Realestate" />
           </a>
         </HStack>
       </HStack>
     </Box>
-  );
-};
+  )
+}
 
-export default FeaturedPlatforms;
+export default FeaturedPlatforms

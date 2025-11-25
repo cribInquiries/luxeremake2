@@ -1,13 +1,12 @@
-"use client";
-import React from "react";
-import { ContainerScroll } from "@/components/ScrollBoxMove/container-scroll-animation";
-import Image from "next/image";
-import GalleryImgScreenShot from "@/public/images/webImages/GalleryImgScreenShot.png";
-import { Box, HStack, Text } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
-import TitleSubheading from "./Text/titleSubheading";
+"use client"
+import { ContainerScroll } from "@/components/ScrollBoxMove/container-scroll-animation"
+import Image from "next/image"
+import { Box, HStack } from "@chakra-ui/react"
+import { useRouter } from "next/navigation"
+import TitleSubheading from "./Text/titleSubheading"
+
 export function BoxScrollMoveDown() {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <div className="flex flex-col overflow-hidden">
       <ContainerScroll
@@ -19,22 +18,12 @@ export function BoxScrollMoveDown() {
             >
               <TitleSubheading
                 title={"Get Started"}
-                subheading={
-                  "Learn how our Adelaide-based consultants can help you get started."
-                }
+                subheading={"Learn how our Adelaide-based consultants can help you get started."}
               />
 
-             
               <HStack
                 data-aos="fade-up"
-                justify={[
-                  "center",
-                  "center",
-                  "center",
-                  "center",
-                  "center",
-                  "center",
-                ]}
+                justify={["center", "center", "center", "center", "center", "center"]}
                 align={"center"}
                 w={"100%"}
                 transition={"all 0.2s ease-in-out"}
@@ -42,7 +31,7 @@ export function BoxScrollMoveDown() {
               >
                 <Box
                   as={"button"}
-                    aria-label="Get in Touch"
+                  aria-label="Get in Touch"
                   data-aos="fade-up"
                   mt={"50px"}
                   display={"flex"}
@@ -66,7 +55,7 @@ export function BoxScrollMoveDown() {
                   px={"12"}
                   fontWeight={"500"}
                   onClick={() => {
-                    router.push("/contact");
+                    router.push("/contact")
                   }}
                 >
                   Get in Touch
@@ -81,7 +70,7 @@ export function BoxScrollMoveDown() {
           quality={70}
           priority
           loading="eager"
-          src={GalleryImgScreenShot}
+          src="/images/webImages/GalleryImgScreenShot.png"
           alt="Gallery Screenshot"
           height={720}
           width={1400}
@@ -90,5 +79,5 @@ export function BoxScrollMoveDown() {
         />
       </ContainerScroll>
     </div>
-  );
+  )
 }

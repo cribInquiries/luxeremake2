@@ -1,17 +1,11 @@
-import { Box, Text } from "@chakra-ui/react";
-import LuxeLogo from "@/public/logo.png";
-import Image from "next/image";
+import { Box, Text } from "@chakra-ui/react"
+import Image from "next/image"
 
 const Footer = () => {
   return (
     <Box as="footer" w="100%" pb="40px">
       {/* Top border line */}
-      <Box
-        w="100%"
-        display="flex"
-        justifyContent="center"
-        my={{ base: "40px", md: "60px" }}
-      >
+      <Box w="100%" display="flex" justifyContent="center" my={{ base: "40px", md: "60px" }}>
         <Box w="90%" h="1px" bg="#e0e0e0" />
       </Box>
 
@@ -30,36 +24,24 @@ const Footer = () => {
               <Image
                 quality={70}
                 loading="lazy"
-                src={LuxeLogo || "/placeholder.svg"}
+                src="/icon.svg"
                 alt="Luxe Managements Logo"
                 title="Luxe Managements Logo"
+                width={50}
+                height={50}
               />
             </Box>
-            <Text
-              fontSize={{ base: "16px", md: "18px" }}
-              fontWeight="700"
-              fontFamily="arial"
-            >
+            <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="700" fontFamily="arial">
               Luxe Managements
             </Text>
           </Box>
         </Box>
 
         {/* Links section */}
-        <Box
-          display="flex"
-          flexDirection={{ base: "column", md: "row" }}
-          gap={{ base: "30px", md: "80px" }}
-        >
+        <Box display="flex" flexDirection={{ base: "column", md: "row" }} gap={{ base: "30px", md: "80px" }}>
           {/* Resources column */}
           <Box>
-            <Text
-              fontSize="14px"
-              fontWeight="600"
-              textTransform="uppercase"
-              mb="16px"
-              letterSpacing="0.5px"
-            >
+            <Text fontSize="14px" fontWeight="600" textTransform="uppercase" mb="16px" letterSpacing="0.5px">
               Resources
             </Text>
             <Box>
@@ -80,13 +62,7 @@ const Footer = () => {
 
           {/* Follow Us column */}
           <Box>
-            <Text
-              fontSize="14px"
-              fontWeight="600"
-              textTransform="uppercase"
-              mb="16px"
-              letterSpacing="0.5px"
-            >
+            <Text fontSize="14px" fontWeight="600" textTransform="uppercase" mb="16px" letterSpacing="0.5px">
               Follow Us
             </Text>
             <Box>
@@ -103,7 +79,7 @@ const Footer = () => {
                 Instagram
               </Text>
             </Box>
-             <Box>
+            <Box>
               <Text
                 as="a"
                 title="Luxe Managements Tiktok"
@@ -121,13 +97,7 @@ const Footer = () => {
 
           {/* Legal column */}
           <Box>
-            <Text
-              fontSize="14px"
-              fontWeight="600"
-              textTransform="uppercase"
-              mb="16px"
-              letterSpacing="0.5px"
-            >
+            <Text fontSize="14px" fontWeight="600" textTransform="uppercase" mb="16px" letterSpacing="0.5px">
               Legal
             </Text>
             <Box>
@@ -161,15 +131,8 @@ const Footer = () => {
       </Box>
 
       {/* Copyright section */}
-      <Box
-        w="100%"
-        px={{ base: "5%", md: "10%" }}
-        mt={{ base: "40px", md: "60px" }}
-      >
-        <Box
-          display="flex"
-          justifyContent={{ base: "center", md: "flex-start" }}
-        >
+      <Box w="100%" px={{ base: "5%", md: "10%" }} mt={{ base: "40px", md: "60px" }}>
+        <Box display="flex" justifyContent={{ base: "center", md: "flex-start" }}>
           <Text fontSize="12px" color="gray.500" _dark={{ color: "gray.400" }}>
             © 2023{" "}
             <Text as="span" textDecor="underline">
@@ -180,7 +143,7 @@ const Footer = () => {
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
