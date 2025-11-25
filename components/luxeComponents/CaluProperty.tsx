@@ -1,22 +1,12 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { Box, HStack, Strong, Text } from "@chakra-ui/react";
-import {
-  Search,
-  DollarSign,
-  Users,
-  Calendar,
-  MapPin,
-  ChevronDown,
-  TrendingUp,
-  Zap,
-} from "lucide-react";
-import TitleSubheading from "./Text/titleSubheading";
-import GptLuxeCalc from "./GptLuxeCalc";
+import { useState } from "react"
+import { Box, Strong, Text } from "@chakra-ui/react"
+import { Search, DollarSign, Users, Calendar, MapPin, ChevronDown, TrendingUp, Zap } from "lucide-react"
+import TitleSubheading from "./Text/titleSubheading"
 
 // Locations and property details
-const locations = ["Adelaide, Australia", "Sydney, NSW", "Melbourne, VIC"];
+const locations = ["Adelaide, Australia", "Sydney, NSW", "Melbourne, VIC"]
 const propertyDetails = {
   "Adelaide, Australia": {
     revenue: "$30.6K",
@@ -30,7 +20,7 @@ const propertyDetails = {
     income: "$16.7K",
     capRate: "4.2%",
   },
-};
+}
 const defaultPropertyDetails = {
   revenue: "$45.2K",
   revenueTrend: "+5%",
@@ -42,72 +32,53 @@ const defaultPropertyDetails = {
   expenses: "$10.5K",
   income: "$14.8K",
   capRate: "4.9%",
-};
+}
 
 const CaluProperty = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [showResults, setShowResults] = useState(false);
+  const [searchValue, setSearchValue] = useState("")
+  const [showDropdown, setShowDropdown] = useState(false)
+  const [selectedLocation, setSelectedLocation] = useState("")
+  const [showResults, setShowResults] = useState(false)
 
   const handleSearch = (e) => {
     if (e.key === "Enter" || e.type === "click") {
-      setShowResults(true);
-      setShowDropdown(false);
+      setShowResults(true)
+      setShowDropdown(false)
     }
-  };
+  }
 
   const handleLocationSelect = (location) => {
-    setSearchValue(location);
-    setSelectedLocation(location);
-    setShowDropdown(false);
-    setShowResults(true);
-  };
+    setSearchValue(location)
+    setSelectedLocation(location)
+    setShowDropdown(false)
+    setShowResults(true)
+  }
 
-  const details = propertyDetails[selectedLocation] || defaultPropertyDetails;
+  const details = propertyDetails[selectedLocation] || defaultPropertyDetails
 
   // Reusable ProgressBar component
   const ProgressBar = ({ value, color = "#3182CE", bgColor = "#EDF2F7" }) => (
-    <Box
-      width="100%"
-      height="8px"
-      bg={bgColor}
-      borderRadius="full"
-      overflow="hidden"
-    >
+    <Box width="100%" height="8px" bg={bgColor} borderRadius="full" overflow="hidden">
       <Box width={`${value}%`} height="100%" bg={color} borderRadius="full" />
     </Box>
-  );
+  )
 
   // Reusable TrendIndicator component
   const TrendIndicator = ({ value }) => {
-    const isPositive = value.startsWith("+");
-    const color = isPositive ? "#38A169" : "#E53E3E";
+    const isPositive = value.startsWith("+")
+    const color = isPositive ? "#38A169" : "#E53E3E"
     return (
       <Box display="flex" alignItems="center" gap="4px">
-        <TrendingUp
-          size="16px"
-          color={color}
-          style={!isPositive ? { transform: "rotate(180deg)" } : {}}
-        />
+        <TrendingUp size="16px" color={color} style={!isPositive ? { transform: "rotate(180deg)" } : {}} />
         <Text fontSize="16px" color={color}>
           {value}
         </Text>
       </Box>
-    );
-  };
+    )
+  }
 
   // Reusable StatBox component
-  const StatBox = ({
-    icon,
-    label,
-    value,
-    trend,
-    progressValue,
-    bgColor,
-    iconColor,
-    color,
-  }) => (
+  const StatBox = ({ icon, label, value, trend, progressValue, bgColor, iconColor, color }) => (
     <Box
       bg="white"
       borderRadius="12px"
@@ -136,12 +107,7 @@ const CaluProperty = () => {
         </Text>
       </Box>
 
-      <Text
-        fontSize="32px"
-        fontWeight="700"
-        color="gray.800"
-        marginBottom="8px"
-      >
+      <Text fontSize="32px" fontWeight="700" color="gray.800" marginBottom="8px">
         {value}
       </Text>
 
@@ -156,14 +122,10 @@ const CaluProperty = () => {
         <Text fontSize="14px" color="gray.500" marginBottom="6px">
           {progressValue}
         </Text>
-        <ProgressBar
-          value={Number.parseInt(value)}
-          color={color}
-          bgColor={bgColor}
-        />
+        <ProgressBar value={Number.parseInt(value)} color={color} bgColor={bgColor} />
       </Box>
     </Box>
-  );
+  )
 
   return (
     <>
@@ -254,12 +216,7 @@ const CaluProperty = () => {
               onClick={handleSearch}
               cursor="pointer"
             >
-              <Text
-                fontSize="14px"
-                fontWeight="600"
-                color="white"
-                marginRight="8px"
-              >
+              <Text fontSize="14px" fontWeight="600" color="white" marginRight="8px">
                 Search
               </Text>
               <ChevronDown size={16} color="white" />
@@ -282,21 +239,12 @@ const CaluProperty = () => {
               maxHeight="300px"
               overflowY="auto"
             >
-              <Text
-                fontSize="12px"
-                fontWeight="600"
-                color="gray.500"
-                padding="8px 20px"
-              >
+              <Text fontSize="12px" fontWeight="600" color="gray.500" padding="8px 20px">
                 POPULAR LOCATIONS
               </Text>
 
               {locations
-                .filter(
-                  (loc) =>
-                    !searchValue ||
-                    loc.toLowerCase().includes(searchValue.toLowerCase()),
-                )
+                .filter((loc) => !searchValue || loc.toLowerCase().includes(searchValue.toLowerCase()))
                 .map((location, index) => (
                   <Box
                     key={index}
@@ -324,19 +272,14 @@ const CaluProperty = () => {
                         {location}
                       </Text>
                       <Text fontSize="12px" color="gray.500">
-                        {propertyDetails[location]
-                          ? "Investment Property"
-                          : "Residential Property"}
+                        {propertyDetails[location] ? "Investment Property" : "Residential Property"}
                       </Text>
                     </Box>
                   </Box>
                 ))}
 
-              {locations.filter(
-                (loc) =>
-                  !searchValue ||
-                  loc.toLowerCase().includes(searchValue.toLowerCase()),
-              ).length === 0 && (
+              {locations.filter((loc) => !searchValue || loc.toLowerCase().includes(searchValue.toLowerCase()))
+                .length === 0 && (
                 <Box padding="16px 20px" textAlign="center">
                   <Text fontSize="14px" color="gray.500">
                     No locations found. Try a different search.
@@ -353,8 +296,7 @@ const CaluProperty = () => {
             {/* Header */}
             <Box marginBottom="24px">
               <Text fontSize="24px" fontWeight="500" color="gray.800">
-                <Strong>{selectedLocation || "Market"}</Strong> - Investment
-                Overview
+                <Strong>{selectedLocation || "Market"}</Strong> - Investment Overview
               </Text>
             </Box>
 
@@ -426,7 +368,7 @@ const CaluProperty = () => {
         )}
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default CaluProperty;
+export default CaluProperty

@@ -14,10 +14,64 @@ export default async function ArticlePage({ params }: Props) {
   // await params before using its properties
   const { id } = await params
 
-  const articleRes = await getArticle(id)
-  if (!articleRes.success || !articleRes.data) {
-    return <div>Article not found.</div>
+  let articleRes
+  try {
+    articleRes = await getArticle(id)
+  } catch (error) {
+    console.error("[v0] Error fetching article:", error)
+    return (
+      <Box minH="100vh" display="flex" alignItems="center" justifyContent="center" p="8">
+        <VStack gap="4" textAlign="center">
+          <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="700" color="#0a2342">
+            Article Unavailable
+          </Text>
+          <Text color="#374151" maxW="400px">
+            This article is temporarily unavailable. Please try again later.
+          </Text>
+          <Box
+            as="a"
+            href="/news"
+            backgroundColor="#3182CE"
+            color="white"
+            padding="12px 24px"
+            borderRadius="8px"
+            fontWeight="600"
+            _hover={{ backgroundColor: "#2C5282" }}
+          >
+            Back to News
+          </Box>
+        </VStack>
+      </Box>
+    )
   }
+
+  if (!articleRes || !articleRes.success || !articleRes.data) {
+    return (
+      <Box minH="100vh" display="flex" alignItems="center" justifyContent="center" p="8">
+        <VStack gap="4" textAlign="center">
+          <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="700" color="#0a2342">
+            Article Not Found
+          </Text>
+          <Text color="#374151" maxW="400px">
+            The article you're looking for could not be found.
+          </Text>
+          <Box
+            as="a"
+            href="/news"
+            backgroundColor="#3182CE"
+            color="white"
+            padding="12px 24px"
+            borderRadius="8px"
+            fontWeight="600"
+            _hover={{ backgroundColor: "#2C5282" }}
+          >
+            Back to News
+          </Box>
+        </VStack>
+      </Box>
+    )
+  }
+
   const article: Article = articleRes.data
 
   return (
@@ -40,17 +94,17 @@ export default async function ArticlePage({ params }: Props) {
               <HStack gap="4" flexWrap="wrap" opacity="0.9" fontSize={["sm", "md"]}>
                 <HStack gap="2">
                   <CalendarIcon size={16} />
-                  <Text>April 11, 2025</Text>
+                  <Text>{article.date}</Text>
                 </HStack>
                 <Text display={["none", "block"]}>•</Text>
                 <HStack gap="2">
                   <UserIcon size={16} />
-                  <Text>Luxe Managements Team</Text>
+                  <Text>{article.author}</Text>
                 </HStack>
                 <Text display={["none", "block"]}>•</Text>
                 <HStack gap="2">
                   <ClockIcon size={16} />
-                  <Text>10 min read</Text>
+                  <Text>{article.readTime} min read</Text>
                 </HStack>
               </HStack>
               {/* Use Introduction Subheading from database */}
