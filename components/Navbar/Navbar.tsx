@@ -324,7 +324,7 @@ const Navbar = () => {
             >
               <Image
                 quality={70}
-                src="/placeholder.svg?height=66&width=66"
+                src="/images/logo.png"
                 alt="Luxe Managements Logo"
                 title="Luxe Managements Logo"
                 width={66}

@@ -24,7 +24,7 @@ const Footer = () => {
               <Image
                 quality={70}
                 loading="lazy"
-                src="/placeholder.svg?height=50&width=50"
+                src="/images/logo.png"
                 alt="Luxe Managements Logo"
                 title="Luxe Managements Logo"
                 width={50}
