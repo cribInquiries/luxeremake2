@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, MapPin, Bed, Bath, Maximize2, Check } from 'lucide-react'
+import { ArrowLeft, MapPin, Bed, Bath, Maximize2, Check } from "lucide-react"
 import type { Property } from "@/lib/properties"
 
 interface PropertyDetailViewProps {
@@ -35,7 +35,7 @@ export function PropertyDetailView({ property }: PropertyDetailViewProps) {
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-          
+
           {/* Hero Content */}
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-20 md:pb-24">
             <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
@@ -57,38 +57,28 @@ export function PropertyDetailView({ property }: PropertyDetailViewProps) {
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pb-12 border-b border-gray-200">
               <div>
-                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                  Price
-                </p>
-                <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-black">
-                  {property.price}
-                </p>
+                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Price</p>
+                <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-black">{property.price}</p>
               </div>
               <div className="flex gap-8 md:gap-12">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Bed className="w-5 h-5 text-gray-400" />
-                    <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
-                      Bedrooms
-                    </p>
+                    <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Bedrooms</p>
                   </div>
                   <p className="text-3xl md:text-4xl font-bold text-black">{property.bedrooms}</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Bath className="w-5 h-5 text-gray-400" />
-                    <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
-                      Bathrooms
-                    </p>
+                    <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Bathrooms</p>
                   </div>
                   <p className="text-3xl md:text-4xl font-bold text-black">{property.bathrooms}</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Maximize2 className="w-5 h-5 text-gray-400" />
-                    <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
-                      Sq Ft
-                    </p>
+                    <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Sq Ft</p>
                   </div>
                   <p className="text-3xl md:text-4xl font-bold text-black">{property.sqft.toLocaleString()}</p>
                 </div>
@@ -99,9 +89,7 @@ export function PropertyDetailView({ property }: PropertyDetailViewProps) {
             <div className="pt-12">
               <div className="flex items-center gap-2 mb-3">
                 <MapPin className="w-6 h-6 text-gray-400" />
-                <p className="text-lg font-semibold text-gray-500 uppercase tracking-wider">
-                  Location
-                </p>
+                <p className="text-lg font-semibold text-gray-500 uppercase tracking-wider">Location</p>
               </div>
               <p className="text-2xl md:text-3xl font-semibold text-black">{property.location}</p>
             </div>
@@ -189,9 +177,7 @@ export function PropertyDetailView({ property }: PropertyDetailViewProps) {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-12 text-balance">
               The Neighborhood
             </h2>
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed text-pretty">
-              {property.neighborhood}
-            </p>
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed text-pretty">{property.neighborhood}</p>
           </div>
         </section>
 

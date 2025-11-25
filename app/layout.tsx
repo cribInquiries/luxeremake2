@@ -133,8 +133,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-status-bar-style": "default",
     "format-detection": "telephone=no",
   },
-
-  
+    generator: 'v0.app'
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -157,3 +156,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   )
 }
+
+
+import './globals.css'

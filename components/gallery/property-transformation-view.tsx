@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react"
 import type { Property } from "@/lib/properties"
 import { Bar, BarChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Cell } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { ImageLightbox } from "@/components/image-lightbox"
+import { ImageLightbox } from "@/components/gallery/image-lightbox"
 
 interface PropertyTransformationViewProps {
   property: Property

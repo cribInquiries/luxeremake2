@@ -1,26 +1,15 @@
-import dynamic from "next/dynamic";
-import React from "react";
+"use client"
+import dynamic from "next/dynamic"
+import { Box, HStack } from "@chakra-ui/react"
+import { useRouter } from "next/navigation"
+import TitleSubheading from "./Text/titleSubheading"
+const ThumnailSlider = dynamic(() => import("./ThumnailSliderClient"), { ssr: false })
 
-import { Box, HStack } from "@chakra-ui/react";
-
-import { useRouter } from "next/navigation";
-import TitleSubheading from "./Text/titleSubheading";
-const ThumnailSlider = dynamic(
-  () => import("@/components/carousel/ThumnailSlider"),
-  {
-    ssr: false,
-  },
-);
 const GalleryHeroSection = () => {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <>
-      <HStack
-        my={["50px", "50px", "100px", "100px", "100px", "100px"]}
-        justify={"center"}
-        align={"center"}
-        w={"100%"}
-      >
+      <HStack my={["50px", "50px", "100px", "100px", "100px", "100px"]} justify={"center"} align={"center"} w={"100%"}>
         <Box w={"90%"} borderTop={"1px solid #e0e0e0"} />
       </HStack>
       <TitleSubheading
@@ -30,33 +19,20 @@ const GalleryHeroSection = () => {
         }
       />
       <HStack id="gallery-section" w="100%" justify="center" align="center">
-        <Box
-          w="100%"
-          bg="white"
-          borderRadius="md"
-          p={["20px", "30px"]}
-          textAlign="center"
-        >
+        <Box w="100%" bg="white" borderRadius="md" p={["20px", "30px"]} textAlign="center">
           {/* Title & Subtitle */}
 
           <HStack
             data-aos="fade-up"
-            justify={[
-              "center",
-              "center",
-              "center",
-              "center",
-              "center",
-              "center",
-            ]}
+            justify={["center", "center", "center", "center", "center", "center"]}
             align={"start"}
             w={"100%"}
             transition={"all 0.2s ease-in-out"}
             zIndex={3}
           >
             <Box
-            as={"button"}
-            aria-label="Go to Gallery"
+              as={"button"}
+              aria-label="Go to Gallery"
               data-aos="fade-up"
               my={"40px"}
               display={"flex"}
@@ -87,19 +63,14 @@ const GalleryHeroSection = () => {
           </HStack>
           {/* Images Container */}
 
-          <HStack
-            gap={["10px", "20px", "40px"]}
-            justify="center"
-            align="center"
-            flexWrap="wrap"
-          >
+          <HStack gap={["10px", "20px", "40px"]} justify="center" align="center" flexWrap="wrap">
             {/* Image 1: Rotated 45° */}
             <ThumnailSlider />
           </HStack>
         </Box>
       </HStack>
     </>
-  );
-};
+  )
+}
 
-export default GalleryHeroSection;
+export default GalleryHeroSection

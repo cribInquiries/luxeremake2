@@ -1,56 +1,48 @@
-"use client";
-
-import { Metadata } from "next";
-import React, { useEffect, useState } from "react";
-import { Box, Text } from "@chakra-ui/react";
-import { getAllArticles } from "@/lib/actions/getAllArticles.action";
-import { Article } from "@/lib/types/article";
-import Image from "next/image";
+"use client"
+import { useEffect, useState } from "react"
+import { Box, Text } from "@chakra-ui/react"
+import { getAllArticles } from "@/lib/actions/get-all-articles"
+import type { Article } from "@/lib/types/article"
+import Image from "next/image"
 // app/news/page.tsx
 
-
 const NewsPage = () => {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [offset, setOffset] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [totalCount, setTotalCount] = useState(0);
-  const [categories, setCategories] = useState("Investment");
+  const [articles, setArticles] = useState<Article[]>([])
+  const [offset, setOffset] = useState(0)
+  const [loading, setLoading] = useState(false)
+  const [totalCount, setTotalCount] = useState(0)
+  const [categories, setCategories] = useState("Investment")
 
-  const LIMIT = 6;
+  const LIMIT = 6
 
   const fetchArticles = async () => {
-    setLoading(true);
-    const res = await getAllArticles(LIMIT, offset);
+    setLoading(true)
+    const res = await getAllArticles(LIMIT, offset)
     if (res.success && res.data) {
       setArticles((prev) => {
-        const existingIds = new Set(prev.map((a) => a.$id));
-        const newUnique = res.data.filter((a) => !existingIds.has(a.$id));
-        return [...prev, ...newUnique];
-      });
-      setOffset((prev) => prev + LIMIT);
-      setTotalCount(res.total);
+        const existingIds = new Set(prev.map((a) => a.$id))
+        const newUnique = res.data.filter((a) => !existingIds.has(a.$id))
+        return [...prev, ...newUnique]
+      })
+      setOffset((prev) => prev + LIMIT)
+      setTotalCount(res.total)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   useEffect(() => {
-    fetchArticles();
-  }, []);
+    fetchArticles()
+  }, [])
 
   // Sample categories for visual enhancement
-  const Allcategories = [
-    "Investment",
-    "Property Management",
-    "Market Trends",
-    "Technology",
-  ];
+  const Allcategories = ["Investment", "Property Management", "Market Trends", "Technology"]
 
   // Sample statistics for visual enhancement
   const stats = [
     { value: "27%", label: "Average ROI" },
     { value: "3.5x", label: "Portfolio Growth" },
     { value: "40+", label: "Markets Served" },
-  ];
+  ]
 
   return (
     <Box width="100%" overflowX="hidden">
@@ -69,10 +61,7 @@ const NewsPage = () => {
         paddingY={{ base: "40px", md: "60px" }}
       >
         {/* Hero Section with improved responsive layout */}
-        <Box
-          position="relative"
-          paddingBottom={{ base: "40px", sm: "50px", md: "60px", lg: "80px" }}
-        >
+        <Box position="relative" paddingBottom={{ base: "40px", sm: "50px", md: "60px", lg: "80px" }}>
           <Box
             display="flex"
             flexDirection={{ base: "column", lg: "row" }}
@@ -127,11 +116,9 @@ const NewsPage = () => {
                 maxWidth={{ base: "100%", md: "540px" }}
                 marginBottom={{ base: "24px", md: "32px" }}
               >
-                Discover how our innovative approach to property/AirBnB
-                management and real estate investments can elevate your
-                portfolio to new heights. Our data-driven strategies have helped
-                clients achieve remarkable results in today's competitive
-                market.
+                Discover how our innovative approach to property/AirBnB management and real estate investments can
+                elevate your portfolio to new heights. Our data-driven strategies have helped clients achieve remarkable
+                results in today's competitive market.
               </Text>
 
               {/* Statistics row with improved responsive layout */}
@@ -149,12 +136,7 @@ const NewsPage = () => {
                 marginTop={{ base: "24px", md: "32px" }}
               >
                 {stats.map((stat, index) => (
-                  <Box
-                    key={index}
-                    display="flex"
-                    flexDirection="column"
-                    minWidth={{ sm: "80px", md: "100px" }}
-                  >
+                  <Box key={index} display="flex" flexDirection="column" minWidth={{ sm: "80px", md: "100px" }}>
                     <Text
                       fontSize={{
                         base: "20px",
@@ -214,13 +196,11 @@ const NewsPage = () => {
                   loading="lazy"
                   src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&q=75"
                   alt="A person working on a laptop in a modern office"
-              
                   fill // makes the img absolutely fill this Box
                   style={{
                     objectFit: "cover", // background-size: cover
                     objectPosition: "center", // background-position: center
                   }}
-
                   // optional: load immediately if above the fold
                 />
               </Box>
@@ -272,9 +252,8 @@ const NewsPage = () => {
             maxWidth={{ base: "100%", md: "600px" }}
             paddingX={{ base: "16px", md: "0" }}
           >
-            Stay informed with our latest insights on real estate trends,
-            investment strategies, and market analysis to help you make better
-            property decisions.
+            Stay informed with our latest insights on real estate trends, investment strategies, and market analysis to
+            help you make better property decisions.
           </Text>
 
           {/* Category Pills with improved responsive spacing */}
@@ -295,9 +274,7 @@ const NewsPage = () => {
             {Allcategories.map((categoryInAll, index) => (
               <Box
                 key={categoryInAll}
-                backgroundColor={
-                  categories === categoryInAll ? "#EBF8FF" : "gray.100"
-                }
+                backgroundColor={categories === categoryInAll ? "#EBF8FF" : "gray.100"}
                 color={categories === categoryInAll ? "#2C5282" : "gray.700"}
                 borderRadius="full"
                 padding={{ base: "6px 12px", md: "8px 16px" }}
@@ -305,8 +282,7 @@ const NewsPage = () => {
                 fontWeight={categories === categoryInAll ? "600" : "500"}
                 cursor="pointer"
                 _hover={{
-                  backgroundColor:
-                    categories === categoryInAll ? "#BEE3F8" : "gray.200",
+                  backgroundColor: categories === categoryInAll ? "#BEE3F8" : "gray.200",
                 }}
                 transition="all 0.2s ease-in-out"
                 onClick={() => setCategories(categoryInAll)}
@@ -329,10 +305,7 @@ const NewsPage = () => {
 
         {/* Featured Article with improved responsive behavior */}
         {articles.length > 0 && (
-          <Box
-            marginBottom={{ base: "30px", sm: "40px", md: "48px" }}
-            display={{ base: "none", md: "block" }}
-          >
+          <Box marginBottom={{ base: "30px", sm: "40px", md: "48px" }} display={{ base: "none", md: "block" }}>
             <Box
               display="flex"
               flexDirection={{ base: "column", lg: "row" }}
@@ -360,16 +333,15 @@ const NewsPage = () => {
                     loading="lazy"
                     src={
                       articles[0]?.featuredImage ||
-                      "https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&q=75"
+                      "https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&q=75" ||
+                      "/placeholder.svg"
                     }
                     alt={articles[0]?.title}
-                 
                     fill // in Next.js 13+; for older versions use layout="fill"
                     style={{
                       objectFit: "cover", // replicates background-size: cover
                       objectPosition: "center", // replicates background-position: center
                     }}
-
                     // optional: load right away if this is above the fold
                   />
                 </Box>
@@ -419,8 +391,7 @@ const NewsPage = () => {
                   lineHeight="1.3"
                   marginBottom={{ base: "12px", md: "16px" }}
                 >
-                  {articles[0]?.title ||
-                    "Understanding the Modern Real Estate Landscape"}
+                  {articles[0]?.title || "Understanding the Modern Real Estate Landscape"}
                 </Text>
 
                 <Text
@@ -444,18 +415,11 @@ const NewsPage = () => {
                   />
 
                   <Box>
-                    <Text
-                      fontSize={{ base: "13px", md: "14px" }}
-                      fontWeight="600"
-                    >
+                    <Text fontSize={{ base: "13px", md: "14px" }} fontWeight="600">
                       {articles[0]?.author?.name || "Sarah Johnson"}
                     </Text>
-                    <Text
-                      fontSize={{ base: "11px", md: "12px" }}
-                      color="gray.500"
-                    >
-                      {articles[0]?.publishedAt || "May 2, 2025"} •{" "}
-                      {articles[0]?.readTime || "5 min read"}
+                    <Text fontSize={{ base: "11px", md: "12px" }} color="gray.500">
+                      {articles[0]?.publishedAt || "May 2, 2025"} • {articles[0]?.readTime || "5 min read"}
                     </Text>
                   </Box>
                 </Box>
@@ -484,8 +448,7 @@ const NewsPage = () => {
               transition="transform 0.3s, box-shadow 0.3s"
               _hover={{
                 transform: "translateY(-4px)",
-                boxShadow:
-                  "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
               }}
               position="relative"
               height={{ base: "auto", sm: "100%" }}
@@ -516,18 +479,16 @@ const NewsPage = () => {
                     loading="lazy"
                     src={
                       article.featuredImage ||
-                      `https://images.pexels.com/photos/${1546168 + index * 10}/pexels-photo-${
+                      `https://images.pexels.com/photos/${1546168 + index * 10 || "/placeholder.svg"}/pexels-photo-${
                         1546168 + index * 10
                       }.jpeg?auto=compress&cs=tinysrgb&q=75`
                     }
                     alt={article.title}
-                
                     fill // in Next.js 13+, for older versions use layout="fill"
                     style={{
                       objectFit: "cover", // replicates background-size: cover
                       objectPosition: "center", // replicates background-position: center
                     }}
-
                     // optional: preload if this is critical
                   />
                 </Box>
@@ -543,17 +504,11 @@ const NewsPage = () => {
                   fontSize={{ base: "10px", md: "11px" }}
                   fontWeight="600"
                 >
-                  {article.category ||
-                    Allcategories[index % Allcategories.length]}
+                  {article.category || Allcategories[index % Allcategories.length]}
                 </Box>
               </Box>
 
-              <Box
-                padding={{ base: "16px", md: "20px" }}
-                display="flex"
-                flexDirection="column"
-                flex="1"
-              >
+              <Box padding={{ base: "16px", md: "20px" }} display="flex" flexDirection="column" flex="1">
                 <Text
                   fontSize={{ base: "16px", md: "18px" }}
                   fontWeight="700"
@@ -585,10 +540,7 @@ const NewsPage = () => {
                   paddingTop={{ base: "10px", md: "12px" }}
                   marginTop="auto"
                 >
-                  <Text
-                    fontSize={{ base: "11px", md: "12px" }}
-                    color="gray.500"
-                  >
+                  <Text fontSize={{ base: "11px", md: "12px" }} color="gray.500">
                     {article.publishedAt || "May 2, 2025"}
                   </Text>
 
@@ -694,14 +646,10 @@ const NewsPage = () => {
         </Box>
 
         {/* Enhanced Load More Button with better responsive sizing */}
-        <Box
-          marginTop={{ base: "40px", sm: "50px", md: "60px" }}
-          textAlign="center"
-          position="relative"
-        >
+        <Box marginTop={{ base: "40px", sm: "50px", md: "60px" }} textAlign="center" position="relative">
           <Box
             as="button"
-        aria-label="Load more articles"
+            aria-label="Load more articles"
             onClick={fetchArticles}
             padding={{ base: "10px 24px", sm: "11px 28px", md: "12px 32px" }}
             borderRadius={{ base: "4px", md: "6px" }}
@@ -771,14 +719,12 @@ const NewsPage = () => {
             color="gray.500"
             marginTop={{ base: "8px", md: "12px" }}
           >
-            {totalCount > 0
-              ? `${articles.length} of ${totalCount} articles loaded`
-              : "Check back soon for new content"}
+            {totalCount > 0 ? `${articles.length} of ${totalCount} articles loaded` : "Check back soon for new content"}
           </Text>
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default NewsPage;
+export default NewsPage

@@ -1,20 +1,7 @@
-
-
-import dynamic from "next/dynamic";
-import React, { useEffect } from "react";
-import { Box, Stack, HStack, Icon, Text } from "@chakra-ui/react";
-
-// import { FlipWords } from "@/components/ui/flip-words";
-import { ArrowRight } from "lucide-react";
-
-
-const HouseHeroParallax = dynamic(
-  () => import("./customUI/Parallax/HouseHeroParallax"),
-  { ssr: false },
-);
+import { Box } from "@chakra-ui/react"
+import HouseHeroParallax from "./customUI/Parallax/HouseHeroParallaxClient"
 
 const Hero = () => {
-
   // const words = [
   //   "Effortless ",
   //   "Stress-free",
@@ -27,8 +14,6 @@ const Hero = () => {
 
   return (
     <>
-   
-
       <Box
         overflowX={"hidden"}
         mt={{
@@ -48,7 +33,7 @@ const Hero = () => {
 
       {/* New Dialog Component */}
     </>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
