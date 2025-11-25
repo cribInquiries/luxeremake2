@@ -25,27 +25,27 @@ const FurnishingAndStyling = () => {
   const CraftedBoxes = [
     {
       title: "Transform your space",
-      img: "/images/dalts/houseFive/WEB/3.jpg",
+      img: "/placeholder.svg?height=600&width=800",
     },
     {
       title: "Transform your space",
-      img: "/images/dalts/houseFour/WEB/5.jpg",
+      img: "/placeholder.svg?height=600&width=800",
     },
     {
       title: "Transform your space",
-      img: "/images/dalts/houseFive/WEB/9.jpg",
+      img: "/placeholder.svg?height=600&width=800",
     },
     {
       title: "Transform your space",
-      img: "/images/dalts/houseTwo/WEB/4.jpg",
+      img: "/placeholder.svg?height=600&width=800",
     },
     {
       title: "Transform your space",
-      img: "/images/dalts/houseFive/WEB/5.jpg",
+      img: "/placeholder.svg?height=600&width=800",
     },
     {
       title: "Transform your space",
-      img: "/images/dalts/houseSix/WEB/4.jpg",
+      img: "/placeholder.svg?height=600&width=800",
     },
   ]
 

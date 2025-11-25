@@ -42,7 +42,7 @@ const FeaturedPlatforms = () => {
           h={["30%", "30%", "30%", "30%", "100%"]}
         >
           <a href="https://www.airbnb.com" target="_blank" rel="noreferrer" aria-label="Airbnb Logo" title="Airbnb">
-            <Image src="/images/AirbnbLogo.svg" width={250} height={250} alt="Airbnb" />
+            <Image src="/placeholder.svg?height=250&width=250" width={250} height={250} alt="Airbnb" />
           </a>
         </HStack>
 
@@ -64,7 +64,7 @@ const FeaturedPlatforms = () => {
             aria-label="Booking.com Logo"
             title="Booking.com"
           >
-            <Image src="/images/Booking.svg" width={250} height={250} alt="Booking.com" />
+            <Image src="/placeholder.svg?height=250&width=250" width={250} height={250} alt="Booking.com" />
           </a>
         </HStack>
 
@@ -80,7 +80,7 @@ const FeaturedPlatforms = () => {
           h={["30%", "30%", "30%", "30%", "100%"]}
         >
           <a href="https://www.vrbo.com" target="_blank" rel="noreferrer" aria-label="Vrbo Logo" title="Vrbo">
-            <Image src="/images/VrboLogo.svg" width={200} height={200} alt="Vrbo" />
+            <Image src="/placeholder.svg?height=200&width=200" width={200} height={200} alt="Vrbo" />
           </a>
         </HStack>
 
@@ -96,7 +96,7 @@ const FeaturedPlatforms = () => {
           h={["30%", "30%", "30%", "30%", "100%"]}
         >
           <a href="https://www.stayz.com.au" target="_blank" rel="noreferrer" aria-label="Stayz Logo" title="Stayz">
-            <Image src="/images/stayzLogo.svg" width={200} height={200} alt="Stayz" />
+            <Image src="/placeholder.svg?height=200&width=200" width={200} height={200} alt="Stayz" />
           </a>
         </HStack>
 
@@ -118,7 +118,7 @@ const FeaturedPlatforms = () => {
             aria-label="Realestate Logo"
             title="Realestate"
           >
-            <Image src="/images/realestateLogo.svg" width={250} height={250} alt="Realestate" />
+            <Image src="/placeholder.svg?height=250&width=250" width={250} height={250} alt="Realestate" />
           </a>
         </HStack>
       </HStack>

@@ -12,14 +12,14 @@ type ImgPreview = {
 
 function ThumnailSlider() {
   const imgPreview: ImgPreview = {
-    img1: "/images/dalts/houseOne/WEB/10.jpg",
-    img2: "/images/dalts/houseOne/WEB/2.jpg",
-    img5: "/images/dalts/houseTwo/WEB/1.jpg",
-    img8: "/images/dalts/houseTwo/WEB/4.jpg",
-    img14: "/images/dalts/houseFour/WEB/9.jpg",
-    img15: "/images/dalts/houseThree/WEB/1.jpg",
-    img16: "/images/dalts/houseThree/WEB/2.jpg",
-    img17: "/images/dalts/houseThree/WEB/5.jpg",
+    img1: "/placeholder.svg?height=800&width=1400",
+    img2: "/placeholder.svg?height=800&width=1400",
+    img5: "/placeholder.svg?height=800&width=1400",
+    img8: "/placeholder.svg?height=800&width=1400",
+    img14: "/placeholder.svg?height=800&width=1400",
+    img15: "/placeholder.svg?height=800&width=1400",
+    img16: "/placeholder.svg?height=800&width=1400",
+    img17: "/placeholder.svg?height=800&width=1400",
   }
 
   const OPTIONS: EmblaOptionsType = { loop: false }

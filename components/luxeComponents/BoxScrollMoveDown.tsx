@@ -70,7 +70,7 @@ export function BoxScrollMoveDown() {
           quality={70}
           priority
           loading="eager"
-          src="/images/webImages/GalleryImgScreenShot.png"
+          src="/placeholder.svg?height=720&width=1400"
           alt="Gallery Screenshot"
           height={720}
           width={1400}

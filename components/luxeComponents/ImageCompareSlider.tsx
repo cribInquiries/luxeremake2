@@ -5,8 +5,8 @@ import { useState, useRef, useEffect } from "react"
 import { Box } from "@chakra-ui/react"
 
 const ImageCompareSlider = () => {
-  const leftImage = "/images/houseImg/goodHouse.png"
-  const rightImage = "/images/houseImg/badhouse.png"
+  const leftImage = "/placeholder.svg?height=600&width=800"
+  const rightImage = "/placeholder.svg?height=600&width=800"
 
   const containerRef = useRef<HTMLDivElement>(null)
   const [sliderX, setSliderX] = useState(0)

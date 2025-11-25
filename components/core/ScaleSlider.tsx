@@ -11,14 +11,14 @@ const ScaleSlider = () => {
   const OPTIONS: EmblaOptionsType = { loop: true }
 
   const images = [
-    "/images/dalts/houseOne/WEB/2.jpg",
-    "/images/dalts/houseOne/WEB/10.jpg",
-    "/images/dalts/houseTwo/WEB/1.jpg",
-    "/images/dalts/houseTwo/WEB/4.jpg",
-    "/images/dalts/houseThree/WEB/1.jpg",
-    "/images/dalts/houseThree/WEB/2.jpg",
-    "/images/dalts/houseThree/WEB/5.jpg",
-    "/images/dalts/houseFour/WEB/9.jpg",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=800&width=1200",
+    "/placeholder.svg?height=800&width=1200",
   ]
 
   return (

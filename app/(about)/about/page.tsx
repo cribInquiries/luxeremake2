@@ -15,31 +15,31 @@ const About = () => {
     {
       name: "Habibur Rahman",
       role: "Founder & CEO",
-      src: "/images/compnayPFP/Habibi.jpeg",
+      src: "/placeholder.svg?height=400&width=400",
       bio: "With over 10 years in property management, Habibur founded Luxe with a vision to transform the short-term rental industry through innovation and exceptional service.",
     },
     {
       name: "Matthew Zaniewski",
       role: "Operations Director",
-      src: "/images/compnayPFP/Mat.png",
+      src: "/placeholder.svg?height=400&width=400",
       bio: "Matthew oversees day-to-day operations, ensuring every property meets our exacting standards and every guest experience exceeds expectations.",
     },
     {
       name: "Anjesh Bhattarai",
       role: "Lead Software Engineer",
-      src: "/images/compnayPFP/Anjesh.jpeg",
+      src: "/placeholder.svg?height=400&width=400",
       bio: "Anjesh develops our proprietary technology platform that powers our data-driven approach to pricing, marketing, and guest communication.",
     },
     {
       name: "Zadeed Bhuiyan",
       role: "Executive Partner",
-      src: "/images/compnayPFP/Zazeed.jpeg",
+      src: "/placeholder.svg?height=400&width=400",
       bio: "Zadeed brings extensive experience in hospitality and real estate, helping property owners maximize their investment returns.",
     },
     {
       name: "Aryan Dangwal",
       role: "Executive Partner",
-      src: "/images/compnayPFP/Aryan.jpeg",
+      src: "/placeholder.svg?height=400&width=400",
       bio: "Aryan specializes in market analysis and strategic growth, identifying opportunities to expand our portfolio of luxury properties.",
     },
   ])
